@@ -9,7 +9,10 @@
 
 
 #import "ZHEncryptDecryptTools.h"
+
+// 下面是AES加密需要的头
 #import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonCryptor.h>
 
 // 这里用全局变量不用属性是因为, 下面的方法都是类方法, 类方法里面不允许访问成员变量和属性,
 static    SecKeyRef _publicKey;
@@ -59,7 +62,6 @@ static    SecKeyRef _privateKey;
     NSString *base64EncryptedString = [encryptedData base64EncodedStringWithOptions:0];
     return base64EncryptedString;
 }
-
 + (NSData *)rsaEncryptData:(NSData *)data {
     SecKeyRef key = _publicKey;
 
@@ -98,14 +100,12 @@ static    SecKeyRef _privateKey;
     return encryptedData;
 }
 
-
 /// 解密的过程
 /**
  通过路径生成 SecKeyRef _privateKey（即秘钥）;
  @param p12FilePath p12File的路径
  @param p12Password p12File的密码
  */
-
 + (void)loadPrivateKeyWithPath:(NSString *)p12FilePath password:(NSString *)p12Password {
     NSData *data = [NSData dataWithContentsOfFile:p12FilePath];
 
@@ -139,7 +139,6 @@ static    SecKeyRef _privateKey;
     CFRelease(items);
     _privateKey = privateKeyRef;
 }
-
 /**
 解密：根据传入的密文解密成铭文
 @param text 传入需要解密的密文
