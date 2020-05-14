@@ -71,6 +71,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
+#pragma mark - 下面是MD5加密的代码
+/** MD5加密
+ str : 需要加密的字符串
+ */
++ (NSString *)md5:(NSString *)str;
+#pragma mark 上面是AES加密的代码
+
+
+
+
+
+#pragma mark - 下面是xxx加密的代码
+
+#pragma mark 上面是xxx加密的代码
+
+
 
 
 

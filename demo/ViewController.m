@@ -22,7 +22,9 @@
     
 //    [self RSAEncryptDecrypt]; // RSA方式加解密
     
-    [self AESEncryptDecrypt]; // AES方式加解密
+//    [self AESEncryptDecrypt]; // AES方式加解密
+    
+    [self MD5Encrypt]; //  MD5加密
     
 
     
@@ -73,7 +75,19 @@
     NSLog(@"AES解密后的字符串--%@", aesDecrypt_UserName);
 }
 
-
+/// MD5加密
+- (void)MD5Encrypt{
+    NSString *userName = @"hahaha";
+    NSLog(@"加密前的明文字符串是--%@", userName);
+    
+    // 加密
+    NSString *md5Encrypt_UserName = [ZHEncryptDecryptTools md5:userName];
+    NSLog(@"MD5加密后的字符串是--%@", md5Encrypt_UserName);
+    
+    /*
+     因为MD5加密属于哈希算法, 这是一种单向算法, 不可逆, 可以对目标信息生成特定长度的唯一的Hash值, 但是不能通过这个Hash值重新获得目标信息, 但是网上有MD5破解的网站, 这里加密后可以去网站上试试破解后的是不是跟加密前的明文是一样的
+     */
+}
 
 
 @end
