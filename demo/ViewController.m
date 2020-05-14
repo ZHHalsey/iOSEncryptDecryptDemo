@@ -20,7 +20,7 @@
     self.view.backgroundColor = [UIColor grayColor];
     
     
-    [self RSAEncryptDecrypt]; // RSA方式加解密
+//    [self RSAEncryptDecrypt]; // RSA方式加解密
     
     [self AESEncryptDecrypt]; // AES方式加解密
     
@@ -40,7 +40,9 @@
     
     // 3 > 根据传入明文生成密文
     NSString *encryptString = [ZHEncryptDecryptTools rsaEncryptText:@"我是明文，把我非对称加密"];
-    NSLog(@"加密后的密文--%@", encryptString);
+    NSLog(@"RSA加密后的密文--%@", encryptString);
+    
+    
     
     // 4 > 获取private_key.p12路径
     NSString *privatePath = [[NSBundle mainBundle] pathForResource:@"private_key.p12" ofType:nil];
@@ -57,7 +59,17 @@
 
 /// AES方式加解密
 - (void)AESEncryptDecrypt{
+    // 明文
+    NSString *userName = @"userName:zhanghao";
+    NSLog(@"AES加密前的明文--%@", userName);
     
+    // 明文加密获得密文
+    NSString *aesEncrypt_UserName = [ZHEncryptDecryptTools aesEncryptText:userName withKey:@"ddddd"];
+    NSLog(@"AES加密后的字符串--%@", aesEncrypt_UserName);
+    
+    // 密文解密(传入的key跟上面不一样的话, 得到的结果就是 null)
+    NSString *aesDecrypt_UserName = [ZHEncryptDecryptTools aesDecryptText:aesEncrypt_UserName withKey:@"ddddd"];
+    NSLog(@"AES解密后的字符串--%@", aesDecrypt_UserName);
 }
 
 

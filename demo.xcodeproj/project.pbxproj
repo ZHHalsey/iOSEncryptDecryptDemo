@@ -11,6 +11,7 @@
 		615CA32624669A71004300E3 /* ZHEncryptDecryptTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 615CA32524669A71004300E3 /* ZHEncryptDecryptTools.m */; };
 		615CA32A2466AF0A004300E3 /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 615CA3292466AF0A004300E3 /* private_key.p12 */; };
 		615CA32C2466AF14004300E3 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 615CA32B2466AF14004300E3 /* public_key.der */; };
+		615DBE0B246D0DE4009B63B9 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 615DBE0A246D0DE4009B63B9 /* NSData+AES256.m */; };
 		615E2A832445622000111149 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 615E2A822445622000111149 /* AppDelegate.m */; };
 		615E2A892445622000111149 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 615E2A882445622000111149 /* ViewController.m */; };
 		615E2A8C2445622000111149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 615E2A8A2445622000111149 /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 		615CA32524669A71004300E3 /* ZHEncryptDecryptTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHEncryptDecryptTools.m; sourceTree = "<group>"; };
 		615CA3292466AF0A004300E3 /* private_key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key.p12; sourceTree = "<group>"; };
 		615CA32B2466AF14004300E3 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
+		615DBE09246D0DE4009B63B9 /* NSData+AES256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
+		615DBE0A246D0DE4009B63B9 /* NSData+AES256.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
 		615E2A7E2445622000111149 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		615E2A812445622000111149 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		615E2A822445622000111149 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				615E2A882445622000111149 /* ViewController.m */,
 				615CA32424669A71004300E3 /* ZHEncryptDecryptTools.h */,
 				615CA32524669A71004300E3 /* ZHEncryptDecryptTools.m */,
+				615DBE09246D0DE4009B63B9 /* NSData+AES256.h */,
+				615DBE0A246D0DE4009B63B9 /* NSData+AES256.m */,
 				615E2A8A2445622000111149 /* Main.storyboard */,
 				615E2A8D2445622200111149 /* Assets.xcassets */,
 				615E2A8F2445622200111149 /* LaunchScreen.storyboard */,
@@ -288,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				615E2A892445622000111149 /* ViewController.m in Sources */,
+				615DBE0B246D0DE4009B63B9 /* NSData+AES256.m in Sources */,
 				615CA32624669A71004300E3 /* ZHEncryptDecryptTools.m in Sources */,
 				615E2A832445622000111149 /* AppDelegate.m in Sources */,
 				615E2A942445622200111149 /* main.m in Sources */,

@@ -11,8 +11,7 @@
 #import "ZHEncryptDecryptTools.h"
 
 // 下面是AES加密需要的头
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonCryptor.h>
+#import "NSData+AES256.h"
 
 // 这里用全局变量不用属性是因为, 下面的方法都是类方法, 类方法里面不允许访问成员变量和属性,
 static    SecKeyRef _publicKey;
@@ -175,12 +174,27 @@ static    SecKeyRef _privateKey;
 
 
 
-#pragma mark 下面是AES加密的代码
+#pragma mark - 下面是AES加密的代码
 /** 加密
  str : 需要加密的明文
  key : 随便写的一个字符串, 加解密用同一个就行
  */
 + (NSString *)aesEncryptText:(NSString *)str withKey:(NSString *)key{
+    const char *cstr = [str cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:str.length];
+    //对数据进行加密
+    NSData *result = [data aes256_encrypt:key];
+    
+    //转换为2进制字符串
+    if (result && result.length > 0) {
+        
+        Byte *datas = (Byte*)[result bytes];
+        NSMutableString *output = [NSMutableString stringWithCapacity:result.length * 2];
+        for(int i = 0; i < result.length; i++){
+            [output appendFormat:@"%02x", datas[i]];
+        }
+        return output;
+    }
 
     return nil;
 }
@@ -189,7 +203,24 @@ static    SecKeyRef _privateKey;
  key : 随便写的一个字符串, 加解密用同一个就行
  */
 + (NSString *)aesDecryptText:(NSString *)str withKey:(NSString *)key{
-    
+    //转换为2进制Data
+    NSMutableData *data = [NSMutableData dataWithCapacity:str.length / 2];
+    unsigned char whole_byte;
+    char byte_chars[3] = {'\0','\0','\0'};
+    int i;
+    for (i=0; i < [str length] / 2; i++) {
+        byte_chars[0] = [str characterAtIndex:i * 2];
+        byte_chars[1] = [str characterAtIndex:i * 2 + 1];
+        whole_byte = strtol(byte_chars, NULL, 16);
+        [data appendBytes:&whole_byte length:1];
+    }
+    //对数据进行解密
+    NSData* result = [data aes256_decrypt:key];
+    if (result && result.length > 0) {
+        
+        return [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding];
+    }
+
     return nil;
 }
 
