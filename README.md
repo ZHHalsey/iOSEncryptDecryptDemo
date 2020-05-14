@@ -1,4 +1,4 @@
-# iOSRSAEncryptDecrypt
+# iOSEncryptDecryptDemo
 iOS各种加密方式汇总demo
 
 把类ZHEncryptDecryptTools拖入到项目中, 在需要加解密的地方import, 然后 使用类方法进行加解密就可以, 详细使用代码请看demo里面的VC控制器
