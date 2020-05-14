@@ -10,8 +10,10 @@
 
 #import "ZHEncryptDecryptTools.h"
 
-// 下面是AES加密需要的头
-#import "NSData+AES256.h"
+#import "NSData+AES256.h" // AES加密需要的头
+
+#import <UIKit/UIKit.h> // base64编码需要的头, 需要用到UIImage类
+
 
 // 这里用全局变量不用属性是因为, 下面的方法都是类方法, 类方法里面不允许访问成员变量和属性,
 static    SecKeyRef _publicKey;
@@ -246,6 +248,42 @@ static    SecKeyRef _privateKey;
             ];
 }
 #pragma mark 上面是AES加密的代码
+
+
+#pragma mark - 下面是base64代码
+/**base64编码
+ obj : 目前只支持NSString和UIImage类型
+ */
++ (NSString *)base64Encode:(id)obj{
+    if ([obj isKindOfClass:[NSString class]]) {
+        //1、先转换成二进制数据
+        NSData *data =[obj dataUsingEncoding:NSUTF8StringEncoding];
+        //2、对二进制数据进行base64编码，完成后返回字符串
+        return [data base64EncodedStringWithOptions:0];
+    }else if ([obj isKindOfClass:[UIImage class]]){
+        NSData *imagedata = UIImagePNGRepresentation(obj);
+        return [imagedata base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    }else{
+        return @"你传入的对象不能进行base64编码";
+    }
+
+}
+
+/**base64字符串解码(只支持NSString和UIImage类型)
+ isStr : 编码的时候传入的是不是字符串, 字符串为YES, 图片为NO
+ */
++ (id)base64Decode:(NSString *)baseStr isStr:(BOOL)isStr{
+    if (isStr) { // 解码后的结果是字符串
+        NSData *data=[[NSData alloc]initWithBase64EncodedString:baseStr options:0];
+        return [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    }else{// 解码后的结果是image
+        NSData *imageData =[[NSData alloc] initWithBase64EncodedString:baseStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *image = [UIImage imageWithData:imageData];
+        return image;
+    }
+}
+
+#pragma mark 上面是base64加密的代码
 
 
 

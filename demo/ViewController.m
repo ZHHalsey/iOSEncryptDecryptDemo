@@ -6,6 +6,9 @@
 //  Copyright © 2020 张豪. All rights reserved.
 //
 
+# define ZHLog(FORMAT, ...) printf("[%s-%s][第%d行]%s\n", __DATE__, __TIME__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+
+
 #import "ViewController.h"
 #import "ZHEncryptDecryptTools.h"
 
@@ -24,8 +27,9 @@
     
 //    [self AESEncryptDecrypt]; // AES方式加解密
     
-    [self MD5Encrypt]; //  MD5加密
+//    [self MD5Encrypt];        //  MD5加密
     
+    [self base64EncodeDecode]; // base编码(可以是Str也可以是图片image)
 
     
     
@@ -89,5 +93,34 @@
      */
 }
 
+/// base64编码解码
+- (void)base64EncodeDecode{
+    
+// 1 : 对NSString类型进行base64编码解码
+    NSString *str = @"zhzhzhzh"; // 明文
+    NSString *base64EncodeStr = [ZHEncryptDecryptTools base64Encode:str];
+    NSLog(@"对字符串进行base64编码结果--%@", base64EncodeStr);
+
+    // 解码, 因为是字符串, 后面就传入YES
+    NSString *base64DecodeStr = [ZHEncryptDecryptTools base64Decode:base64EncodeStr isStr:YES];
+    NSLog(@"字符串解码后的结果是--%@", base64DecodeStr);
+    
+    
+    
+    
+    
+// 2 : 对UIImage类型进行base64编码解码
+    UIImage *image = [UIImage imageNamed:@"base64Image.png"];
+    // 编码
+    NSString *base64ImageStr = [ZHEncryptDecryptTools base64Encode:image];
+    ZHLog(@"对图片进行base64编码结果--%@", base64ImageStr); // 编码太长打印不全, 自定义ZHLog
+    
+    // 解码然后显示到手机上
+    UIImage *base64DecodeImage = [ZHEncryptDecryptTools base64Decode:base64ImageStr isStr:NO]; // 将base64编码进行解码成图片, 传入为NO
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(100, 100, 150, 100)];
+    imageView.image = base64DecodeImage;
+    [self.view addSubview:imageView];
+   
+}
 
 @end

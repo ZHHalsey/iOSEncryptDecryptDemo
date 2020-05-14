@@ -12,6 +12,7 @@
 		615CA32A2466AF0A004300E3 /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 615CA3292466AF0A004300E3 /* private_key.p12 */; };
 		615CA32C2466AF14004300E3 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 615CA32B2466AF14004300E3 /* public_key.der */; };
 		615DBE0B246D0DE4009B63B9 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 615DBE0A246D0DE4009B63B9 /* NSData+AES256.m */; };
+		615DBE0D246D1D60009B63B9 /* base64Image.png in Resources */ = {isa = PBXBuildFile; fileRef = 615DBE0C246D1D60009B63B9 /* base64Image.png */; };
 		615E2A832445622000111149 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 615E2A822445622000111149 /* AppDelegate.m */; };
 		615E2A892445622000111149 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 615E2A882445622000111149 /* ViewController.m */; };
 		615E2A8C2445622000111149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 615E2A8A2445622000111149 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		615CA32B2466AF14004300E3 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 		615DBE09246D0DE4009B63B9 /* NSData+AES256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
 		615DBE0A246D0DE4009B63B9 /* NSData+AES256.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		615DBE0C246D1D60009B63B9 /* base64Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base64Image.png; sourceTree = "<group>"; };
 		615E2A7E2445622000111149 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		615E2A812445622000111149 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		615E2A822445622000111149 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		615E2A802445622000111149 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				615DBE0C246D1D60009B63B9 /* base64Image.png */,
 				615CA3292466AF0A004300E3 /* private_key.p12 */,
 				615CA32B2466AF14004300E3 /* public_key.der */,
 				615E2A812445622000111149 /* AppDelegate.h */,
@@ -267,6 +270,7 @@
 				615E2A8E2445622200111149 /* Assets.xcassets in Resources */,
 				615E2A8C2445622000111149 /* Main.storyboard in Resources */,
 				615CA32A2466AF0A004300E3 /* private_key.p12 in Resources */,
+				615DBE0D246D1D60009B63B9 /* base64Image.png in Resources */,
 				615CA32C2466AF14004300E3 /* public_key.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

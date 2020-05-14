@@ -82,9 +82,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-#pragma mark - 下面是xxx加密的代码
+#pragma mark - 下面是base64代码
+/**base64编码
+ obj : 目前只支持类型为Str和UIImage类型
+ */
++ (NSString *)base64Encode:(id)obj;
 
-#pragma mark 上面是xxx加密的代码
+/**base64解码
+isStr : 编码的时候传入的是不是字符串, 字符串为YES, 图片为NO
+*/
++ (id)base64Decode:(NSString *)baseStr isStr:(BOOL)isStr;
+
+#pragma mark 上面是base64加密的代码
 
 
 
