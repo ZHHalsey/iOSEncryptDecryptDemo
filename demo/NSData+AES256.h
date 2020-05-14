@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (AES256)
 
+
 -(NSData *) aes256_encrypt:(NSString *)key;
 -(NSData *) aes256_decrypt:(NSString *)key;
 

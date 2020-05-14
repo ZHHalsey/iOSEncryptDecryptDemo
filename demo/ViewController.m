@@ -59,6 +59,7 @@
 
 /// AES方式加解密
 - (void)AESEncryptDecrypt{
+    
     // 明文
     NSString *userName = @"userName:zhanghao";
     NSLog(@"AES加密前的明文--%@", userName);

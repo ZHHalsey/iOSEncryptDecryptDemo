@@ -12,7 +12,6 @@
 
 // 加密
 - (NSData *)aes256_encrypt:(NSString *)key{
-    
     char keyPtr[kCCKeySizeAES256 + 1];
     bzero(keyPtr, sizeof(keyPtr));
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];

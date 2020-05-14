@@ -231,6 +231,7 @@ static    SecKeyRef _privateKey;
 
 
 
+
 // TODO : 其他加密方式就在下面写就行
 
 @end
