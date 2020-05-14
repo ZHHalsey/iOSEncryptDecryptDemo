@@ -11,3 +11,6 @@ iOS各种加密方式汇总demo
 ### AES加密方式 : 
     需要添加NSData+AES256分类
     
+### base64编解码 : 
+    支持NSString和UIImage两种类型的编码和解码
+    

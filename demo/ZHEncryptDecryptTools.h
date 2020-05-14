@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 下面是RSA加密的代码
 
-/// ****************** 以下是加密用到的方法 ********************
-/**
+/**                 加密
  通过路径生成 SecKeyRef _publicKey（即公钥）
  @param derFilePath der文件的路径
  */
@@ -32,10 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 */
 + (NSString *)rsaEncryptText:(NSString *)text;
 + (NSData *)rsaEncryptData:(NSData *)data;
-/// ****************** 以上是加密用到的方法 ********************
 
-/// ****************** 以下是解密用到的方法 ********************
-/**
+/**                 解密
  通过路径生成 SecKeyRef _privateKey（即秘钥）;
  @param p12FilePath p12文件的路径
  @param p12Password p12文件的密码
@@ -49,19 +46,18 @@ NS_ASSUME_NONNULL_BEGIN
 */
 + (NSString *)rsaDecryptText:(NSString *)text;
 + (NSData *)rsaDecryptData:(NSData *)data;
-/// ****************** 以上是解密用到的方法 ********************
 
 
 #pragma mark 上面是RSA加密的代码
 
 
 #pragma mark - 下面是AES加密的代码
-/** 加密
+/**                 加密
  str : 需要加密的明文
  key : 随便写的一个字符串, 加解密用同一个就行
  */
 + (NSString *)aesEncryptText:(NSString *)str withKey:(NSString *)key;
-/**解密
+/**                 解密
  str : 需要解密的信息
  key : 随便写的一个字符串, 加解密用同一个就行
  */
@@ -72,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - 下面是MD5加密的代码
-/** MD5加密
+/** 加密
  str : 需要加密的字符串
  */
 + (NSString *)md5:(NSString *)str;
